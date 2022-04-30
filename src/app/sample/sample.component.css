@@ -1,0 +1,72 @@
+p {
+    color: blue;
+    font-size: 20px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+.input-group input {
+    width: 60%;
+}
+
+.form {
+    background-color: rgb(246, 255, 255);
+    margin: 100px auto;
+    width: 30%;
+    /* border: 0px solid rgb(144, 137, 137); */
+    border-radius: 6px;
+    box-sizing: border-box;
+    box-shadow: inset 0 0 7px rgb(154, 224, 244), 0 0 10px rgb(154, 224, 244);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    transition: all 2s;
+    /* -webkit-transition: border 500ms ease-out;
+    -moz-transition: border 500ms ease-out;
+    -o-transition: border 500ms ease-out;
+    transition: border 500ms ease-out; */
+}
+.form > button {
+    margin: auto;
+    /* width: 30%; */
+    padding: 10px;
+    background-color: rgb(168, 255, 226);
+    border: none;
+    box-sizing: border-box;
+    border-radius: 5px;
+    box-shadow: inset 0 0 5px rgb(158, 233, 251), 1px 2px 8px rgb(187, 208, 213);
+}
+
+.form > button:active {
+    transform: translate(1px, 2px);
+    box-shadow: inset 0 0 5px rgb(158, 233, 251), 0 0 5px rgb(187, 208, 213);
+}
+
+.bordered {
+    /* border: 2px solid rgb(9, 2, 208); */
+    /* box-shadow: 0 0 8px rgb(9, 2, 208); */
+    background-color: chartreuse;
+    box-shadow: inset 0 0 7px rgb(154, 224, 244), 0 0 10px rgb(85, 169, 1);
+}
+.bomb {
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    font-size: 40px;
+    color: black
+}
+
+.off{
+    opacity: 0;
+    transition: all 1s;
+}
+.on{
+    opacity: 1;
+    transition: all 1s;
+}

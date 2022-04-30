@@ -1,0 +1,75 @@
+<!-- <h3>Structural Directive with exportAs property</h3>
+<ng-template appRepeat #rd="repeat" #ct="changeText">
+    <p>I am being repeated...</p>
+</ng-template>
+<button (click)="rd.repeatElement(5)">Repeat Element</button>
+<button (click)="ct.changeElementText(10)">Change Text</button> -->
+
+<!-- <h2>{{ courses }}</h2>
+<button (click)="">Change</button>
+<p *appRepeat="3">Repeat</p> -->
+<form
+    *ngIf="!isSubmitted"
+    (submit)="onFormSubmit($event)"
+    class="form"
+    action=""
+    [ngClass]="{ bordered: isBordered }"
+>
+    <div class="input-group">
+        <label for="name">Name</label>
+        <input type="text" name="name" />
+    </div>
+    <div class="input-group">
+        <label for="password">password</label>
+        <input name="password" type="password" />
+    </div>
+    <div style="height: 20px"></div>
+    <button>submit</button>
+</form>
+<div style="position: relative; height: 100px">
+    <p
+        style="margin: auto; display: block; position: absolute"
+        [ngClass]="{ off: !isBordered, on: isBordered }"
+    >
+        ON
+    </p>
+    <p
+        style="margin: auto; display: block; position: absolute"
+        [ngClass]="{ off: isBordered, on: !isBordered }"
+    >
+        OFF
+    </p>
+</div>
+
+<button (click)="isBordered = !isBordered">toggle border</button>
+<span>Click</span>
+<p appMessage msg="Hello there !">Click me</p>
+<!-- <div class="wrap bomb">
+<div class="new">New</div>
+<div class="old">Old</div>
+</div> -->
+<div [ngSwitch]="choice">
+    <p *ngSwitchCase="3">Third</p>
+    <p *ngSwitchCase="1">First</p>
+    <p *ngSwitchCase="2">Second</p>
+    <p *ngSwitchCase="2">Second again</p>
+    <p *ngSwitchDefault="">Default</p>
+    <button (click)="incChoice()">choice inc</button>
+</div>
+<div *ngIf="isSubmitted">
+    <div *ngIf="isAuth; else failureMsg">
+        <h2>Welcome {{ name }}</h2>
+        <br /><br />
+        <h2>Your courses:</h2>
+        <hr />
+        <ul>
+            <li *ngFor="let course of courses; let i = index">
+                {{ course }}
+            </li>
+        </ul>
+        {{ obj }}
+    </div>
+    <ng-template #failureMsg>
+        <h4>Invalid Login !!! Please try again...</h4>
+    </ng-template>
+</div>
