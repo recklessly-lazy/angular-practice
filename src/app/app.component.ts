@@ -1,4 +1,5 @@
-import { Component, ViewChild, ViewEncapsulation, } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild, ViewEncapsulation, } from '@angular/core';
+import { ColorDirective } from './color.directive';
 import { Course } from './course-list/Course.model';
 import { TimerComponent } from './timer/timer.component';
 
@@ -6,9 +7,32 @@ import { TimerComponent } from './timer/timer.component';
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.css'],
-    encapsulation: ViewEncapsulation.None,
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
+
+    constructor(private el: ElementRef) {
+
+    }
+    @ViewChild('timer') timerHead!: ElementRef;
+    timerChild!: HTMLParagraphElement;
+    initTimerChild() {
+        this.timerChild = this.timerHead.nativeElement
+    }
+    ngAfterViewInit() {
+        // console.log("inside ngafterview init");
+        // // this.timerHead.style.fontSize = "30"
+        // this.initTimerChild()
+        // this.timerChild.style.fontSize = "30px"
+        // this.timerChild.innerHTML = this.timerChild.textContent === null ? "" : this.timerChild.textContent.toUpperCase()
+        // this.timerChild.style.textShadow = "2px 2px 5px #e11"
+        // console.log("timer head", this.timerHead);
+    }
+
+    @ViewChild(ColorDirective) colorDirective!: ColorDirective;
+    modifyColor(color: string) {
+        this.colorDirective.modifyColor(color)
+    }
+
 
     @ViewChild(TimerComponent) timerComponent!: TimerComponent;
     isRunning!: boolean;

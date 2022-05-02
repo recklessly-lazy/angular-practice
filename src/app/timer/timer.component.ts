@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
     selector: "app-timer",
@@ -8,7 +9,7 @@ import { Component, OnInit } from "@angular/core";
 export class TimerComponent implements OnInit {
     flag!: boolean;
     count: number = 0;
-    constructor() { }
+    constructor(private formBuilder: FormBuilder) { }
     begin() {
         this.flag = true;
         let start = setInterval(() => {

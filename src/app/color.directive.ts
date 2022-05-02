@@ -1,10 +1,19 @@
-import { Directive } from '@angular/core';
+import { AfterViewInit, Directive, ElementRef } from '@angular/core';
 
 @Directive({
-  selector: '[appColor]'
+    selector: '[appColor]'
 })
-export class ColorDirective {
+export class ColorDirective implements AfterViewInit {
+    constructor(private el: ElementRef) {
 
-  constructor() { }
+    }
+
+    ngAfterViewInit(): void {
+        this.el.nativeElement.style.color = "magenta"
+    }
+    modifyColor(color: string) {
+        this.el.nativeElement.style.color = color
+    }
+
 
 }

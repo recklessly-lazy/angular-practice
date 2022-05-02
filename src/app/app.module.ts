@@ -7,9 +7,13 @@ import { SampleComponent } from './sample/sample.component';
 import { RepeatDirective } from './repeat.directive';
 import { MessageDirective } from './message.directive';
 import { CourseListComponent } from './course-list/course-list.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TimerComponent } from './timer/timer.component';
 import { ColorDirective } from './color.directive';
+import { RegistrationFormComponent } from './registration-form/registration-form.component';
+import { BookComponent } from './book/book.component';
+import { HttpClientModule } from '@angular/common/http'
+
 
 @NgModule({
     declarations: [
@@ -20,9 +24,11 @@ import { ColorDirective } from './color.directive';
         CourseListComponent,
         TimerComponent,
         ColorDirective,
+        RegistrationFormComponent,
+        BookComponent,
     ],
-    imports: [BrowserModule, AppRoutingModule, FormsModule],
+    imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule, HttpClientModule],
     providers: [],
     bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

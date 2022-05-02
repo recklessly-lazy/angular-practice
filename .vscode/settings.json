@@ -1,6 +1,12 @@
 {
-  "editor.semanticTokenColorCustomizations": {
-    "enabled": true
-  },
-  "editor.semanticHighlighting.enabled": true
+    "editor.semanticTokenColorCustomizations": {
+        "enabled": true
+    },
+    "editor.semanticHighlighting.enabled": true,
+    "window.autoDetectColorScheme": false,
+    "workbench.preferredLightColorTheme": "Firefox Light",
+    "workbench.preferredDarkColorTheme": "Yarra Valley",
+    "sundial.sunrise": "07:00",
+    "sundial.sunset": "18:20",
+    "sundial.autoLocale": true
 }

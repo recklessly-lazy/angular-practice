@@ -1,0 +1,100 @@
+<div class="container">
+    <h1>Registration Form</h1>
+    <form [formGroup]="registrationForm">
+        <div class="form-group">
+            <label>First Name</label>
+            <input
+                type="text"
+                class="form-control"
+                formControlName="firstName"
+            />
+            <div
+                *ngIf="registrationForm.controls['firstName'].errors"
+                class="alert alert-danger"
+            >
+                {{registrationForm.controls['firstName'].errors?.['message']}}
+                {{registrationForm.get('firstName')?.errors?.['message']}}
+                <p
+                    *ngIf="registrationForm.controls['firstName'].errors?.['required']"
+                >
+                    This field is required!
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Last Name</label>
+            <input
+                type="text"
+                class="form-control"
+                formControlName="lastName"
+            />
+            <div
+                *ngIf="registrationForm.controls['lastName'].errors"
+                class="alert alert-danger"
+            >
+                Lastname field is invalid.
+                <p
+                    *ngIf="registrationForm.controls['lastName'].errors?.['required']"
+                >
+                    This field is required!
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <fieldset formGroupName="address">
+                <legend>Address:</legend>
+                <label>Street</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    formControlName="street"
+                />
+                <label>Zip</label>
+
+                <input type="text" class="form-control" formControlName="zip" />
+                <div
+                    class="alert alert-danger"
+                    *ngIf="
+                        registrationForm.controls['address'].get('zip')?.errors
+                    "
+                >
+                    {{registrationForm.controls['address'].get('zip')?.errors?.['message']}}
+                </div>
+                <label>City</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    formControlName="city"
+                />
+            </fieldset>
+        </div>
+        <fieldset>
+            <legend>Personalia:</legend>
+            <label for="fname">First name:</label>
+            <input type="text" id="fname" name="fname" /><br /><br />
+            <label for="lname">Last name:</label>
+            <input type="text" id="lname" name="lname" /><br /><br />
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" /><br /><br />
+            <label for="birthday">Birthday:</label>
+            <input type="date" id="birthday" name="birthday" /><br /><br />
+            <input type="submit" value="Submit" />
+        </fieldset>
+        <button
+            type="submit"
+            class="btn btn-primary"
+            (click)="submitted = true"
+        >
+            Submit
+        </button>
+    </form>
+    <br />
+    <div [hidden]="!submitted">
+        <h3>Employee Details</h3>
+        <p>First Name: {{ registrationForm.get("firstName")?.value }}</p>
+        <p>Last Name: {{ registrationForm.get("lastName")?.value }}</p>
+        <p>Street: {{ registrationForm.get("address.street")?.value }}</p>
+        <p>Zip: {{ registrationForm.get("address.zip")?.value }}</p>
+        <p>City: {{ registrationForm.get("address.city")?.value }}</p>
+    </div>
+</div>
