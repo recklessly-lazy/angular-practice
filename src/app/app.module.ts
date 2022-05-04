@@ -12,7 +12,8 @@ import { TimerComponent } from './timer/timer.component';
 import { ColorDirective } from './color.directive';
 import { RegistrationFormComponent } from './registration-form/registration-form.component';
 import { BookComponent } from './book/book.component';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { ErrorComponent } from './error/error.component'
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { HttpClientModule } from '@angular/common/http'
         ColorDirective,
         RegistrationFormComponent,
         BookComponent,
+        ErrorComponent,
     ],
     imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule, HttpClientModule],
     providers: [],
