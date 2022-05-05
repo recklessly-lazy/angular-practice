@@ -32,6 +32,9 @@ export class BooksService {
         }
         return throwError(() => errMsg);
     }
+    getBook(id: string): Observable<Book> {
+        return this.http.get<Book>(`http://localhost:3020/bookList/${id}`);
+    }
     getBooks(): Observable<Book[]> {
         return this.http.get<Book[]>("http://localhost:3020/bookList");
     }

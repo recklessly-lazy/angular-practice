@@ -13,7 +13,8 @@ import { ColorDirective } from './color.directive';
 import { RegistrationFormComponent } from './registration-form/registration-form.component';
 import { BookComponent } from './book/book.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ErrorComponent } from './error/error.component'
+import { ErrorComponent } from './error/error.component';
+import { BookDetailComponent } from './book-detail/book-detail.component'
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { ErrorComponent } from './error/error.component'
         RegistrationFormComponent,
         BookComponent,
         ErrorComponent,
+        BookDetailComponent,
     ],
     imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule, HttpClientModule],
     providers: [],

@@ -43,6 +43,14 @@ router.delete("/bookList/:id", function (req, res) {
     res.json(bookList);
 });
 
+router.get("/bookList/:id", function (req, res) {
+    var id = req.params.id;
+    var book = bookList.find((book) => book.id == id);
+    // bookList.splice(index, 1);
+    console.log("book=", book);
+    res.json(book);
+});
+
 //API : http://localhost:3020/bookList
 router.get("/bookList", function (req, res) {
     res.setHeader("Access-Control-Allow-Origin", "*");

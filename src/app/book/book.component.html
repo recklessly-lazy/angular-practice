@@ -1,20 +1,26 @@
 <h2>My Books</h2>
 <ul class="books">
-    <li *ngFor="let book of books">
-        <div class="bookId">
-            <div>{{ book.id }}</div>
-        </div>
-        <div class="bookName">
-            <span>{{ book.name }}</span>
-            <button
-                class="m-1 btn btn-warning"
-                (click)="updateBook(book.id, book.name)"
-            >
-                edit name
-            </button>
-        </div>
-        <a ro></a>
-    </li>
+    <a
+        style="text-decoration: none"
+        [routerLink]="['/books', book.id]"
+        routerLink="/books/{{ book.id }}"
+        *ngFor="let book of books"
+    >
+        <li>
+            <div class="bookId">
+                <div>{{ book.id }}</div>
+            </div>
+            <div class="bookName">
+                <span>{{ book.name }}</span>
+                <button
+                    class="m-1 btn btn-warning"
+                    (click)="updateBook(book.id, book.name)"
+                >
+                    edit name
+                </button>
+            </div>
+        </li>
+    </a>
 </ul>
 <form (submit)="addBook(nextId.toString(), bookName.value)">
     <div class="container-fluid">
