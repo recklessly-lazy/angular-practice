@@ -4,10 +4,35 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { Book } from "../book/book";
 import { BooksService } from "../book/books.service";
 
+import {
+    state,
+    style,
+    transition,
+    trigger,
+    animate,
+} from "@angular/animations";
+
 @Component({
     selector: "app-book-detail",
     templateUrl: "./book-detail.component.html",
     styleUrls: ["./book-detail.component.css"],
+    animations: [
+        trigger("bookDetailEntry", [
+            transition(":enter", [
+                style({
+                    height: 0,
+                    opacity: 0,
+                }),
+                animate(
+                    "400ms ease",
+                    style({
+                        height: "*",
+                        opacity: 1,
+                    })
+                ),
+            ]),
+        ]),
+    ],
 })
 export class BookDetailComponent implements OnInit {
     book!: Book;
